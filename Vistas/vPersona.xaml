@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kquinapantat5.Vistas.vPersona"
+             Title="vPersona">
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout>
+            <Label 
+        Text="TAREA 5"
+        TextColor="#E6B9E6"
+        FontSize="20"
+        HorizontalOptions="Center" />
+            <Entry x:Name="txtNombre"
+                   TextColor="Red"
+                   Placeholder="Ingrese el nombre"/>
+           
+            <Entry x:Name="txtCorreo"
+                   TextColor="Red"
+                   Placeholder="Ingrese el correo"/>
+            <Entry x:Name="txtTelefono"
+                   TextColor="Red"
+                   Placeholder="Ingrese el telefono"/>
+            <Button
+                x:Name="saveButton" 
+                Text="Guardar"
+                Clicked="saveButton_Clicked"
+                WidthRequest="100"
+                 HeightRequest="40"/>
+            
+        </VerticalStackLayout>
+        <ListView x:Name="listView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Label Text="{Binding Nombre}" FontSize="15" FontAttributes="Bold"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Email}"/>
+                                <Label Grid.Column="2" Text="{Binding Telefono}" FontAttributes="Bold"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </FlexLayout>
+
+</ContentPage>
